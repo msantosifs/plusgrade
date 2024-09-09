@@ -1,0 +1,281 @@
+body, html, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 20px;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a slight shadow for depth */
+  background: #000414;
+  padding-bottom: 5px;
+}
+
+.nav-links {
+  display: inline-flex;
+  list-style: none;
+  gap: 20px;
+  align-items: center;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  transition: transform 0.3s ease-in-out; /* Smooth transition for mobile menu */
+
+  li {
+    margin-top: 10px;
+  }
+
+  a {
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    color: #fff;
+    transition: color 0.3s, background-color 0.3s;
+    border-radius: 5px;
+    text-decoration: none;
+
+    &:hover {
+      color: #007BFF;
+      background-color: #e9ecef;
+    }
+
+    &.active {
+      color: #007BFF;
+      background-color: #e9ecef;
+    }
+  }
+}
+
+/* Hamburger Menu Icon */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+  /* Hide the nav links initially */
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #000414;
+    transform: translateX(100%); /* Move it off-screen */
+  }
+
+  /* Show the nav links when the menu is open */
+  .nav-links.open {
+    transform: translateX(0); /* Slide the menu in */
+  }
+
+  /* Nav links should be vertical and centered */
+  .nav-links li {
+    margin: 20px 0;
+  }
+
+  .nav-links a {
+    font-size: 1.5rem;
+    padding: 10px 0;
+  }
+}
+
+.actions-buttons{
+  display: inline-flex;
+  gap: 10px;
+  & a {
+    text-decoration: none;
+  }
+  .delete-button {
+    cursor: pointer;
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 16px;
+  text-align: left;
+}
+
+th, td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #f4f4f4;
+  cursor: pointer;
+  position: relative;
+  font-weight: bold;
+  text-align: center;
+}
+
+th div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+thead th:hover {
+  background-color: #eaeaea;
+}
+
+/* Sorting icons */
+th .fa-sort, th .fa-sort-up, th .fa-sort-down {
+  margin-left: 8px;
+  color: #888;
+}
+
+th .fa-sort:hover {
+  color: #333;
+}
+
+/* Body rows */
+tbody tr {
+  transition: background-color 0.2s ease-in-out;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+td {
+  text-align: center;
+}
+
+/* Action buttons */
+.actions-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.actions-buttons a, .delete-button {
+  text-decoration: none;
+  color: #555;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.actions-buttons a:hover, .delete-button:hover {
+  color: #f33;
+}
+
+/* Delete button specific styles */
+.delete-button {
+  color: #d9534f;
+}
+
+.delete-button:hover {
+  color: #c9302c;
+}
+
+/* Modal styling */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 500px;
+  max-width: 90%;
+  text-align: center;
+}
+
+.modal-content h2 {
+  margin-bottom: 20px;
+}
+
+.modal-content .buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.modal-content button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.modal-content button.confirm {
+  background-color: #d9534f;
+  color: white;
+}
+
+.modal-content button.confirm:hover {
+  background-color: #c9302c;
+}
+
+.modal-content button.cancel {
+  background-color: #6c757d;
+  color: white;
+}
+
+.modal-content button.cancel:hover {
+  background-color: #5a6268;
+}
+
+.layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+  }
+
+  main {
+    flex-grow: 1;
+    padding: 20px; /* Optional padding */
+  }
+}
+
+
