@@ -6,12 +6,7 @@ export const NavBar = () => {
         <img src={plusgrade} alt="plusgrade" />
         <ul className="nav-links">
             <li>
-                <NavLink to="/">Home</NavLink>
-            </li>
-            <li>
-                <NavLink to="/reservations">Reservations</NavLink>
-            </li>
-            <li><NavLink to="/about">About</NavLink>
+                <NavLink to="/">Reservations</NavLink>
             </li>
         </ul>
     </nav>

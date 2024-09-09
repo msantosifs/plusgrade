@@ -8,7 +8,7 @@ function App() {
       <Router>
           <Routes>
               <Route path="/" element={<MainLayout/>}>
-                  <Route path="/reservations" element={<Reservations/>}/>
+                  <Route path="/" element={<Reservations/>}/>
               </Route>
           </Routes>
       </Router>

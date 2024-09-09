@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import {Charge} from "../models/reservation.model.ts";
 
-const ChargesTable = ({ reservationUUID }) => {
+const ProductChargesTable = ({ reservationUUID }) => {
     const [charges, setCharges] = useState<Charge[]>([]);
 
     useEffect(() => {
@@ -38,4 +38,4 @@ const ChargesTable = ({ reservationUUID }) => {
     );
 };
 
-export default ChargesTable;
+export default ProductChargesTable;

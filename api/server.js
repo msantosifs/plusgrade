@@ -43,16 +43,15 @@ app.get('/api/reservation/:uuid/charges', (req, res) => {
     }
 
     const chargesData = assignmentsOfReservation.map(a => {
-        const relatedCharges = charges.filter(c => c.special_product_assignment_id === a.id && c.active);
+        const relatedCharges = charges.filter(c => c.special_product_assignment_id === a.id);
         return relatedCharges.map(charge => ({
             productName: a.name,
-            status: 'Active',
+            status: charge.active ? 'Active' : 'Inactive',
             charge: charge.amount
         }));
     }).flat();
 
     res.json(chargesData);
 });
-
 app.listen(port, () => console.log(`Listen to port ${port}`));
 
